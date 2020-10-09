@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Table, Button } from "reactstrap";
 import ModalForm from "../Modals/Modal";
 
@@ -46,7 +47,14 @@ class DataTable extends Component {
                                 onClick={() => this.deleteItem(item.cust_id)}
                             >
                                 Del
-                            </Button>
+                            </Button>{" "}
+                            <Link
+                                className="btn btn-info"
+                                to={`/comm/${item.cust_id}`}
+                                role="button"
+                            >
+                                Communication
+                            </Link>
                         </div>
                     </td>
                 </tr>
