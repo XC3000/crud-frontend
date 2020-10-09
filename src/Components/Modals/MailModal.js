@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import FormAddComm from "../Forms/FormAddComm";
+import FormMail from "./../Forms/FormMail";
 
 class ModalForm extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class ModalForm extends Component {
         let button = "";
         let title = "";
 
-        if (label === "Add Communication") {
+        if (label === "Send Mail") {
             button = (
                 <Button
                     color="success"
@@ -38,7 +38,7 @@ class ModalForm extends Component {
                     {label}
                 </Button>
             );
-            title = "Add Communication";
+            title = "Send Mail";
         } else {
             button = (
                 <Button
@@ -73,13 +73,11 @@ class ModalForm extends Component {
                         </ModalBody>
                     )}
 
-                    {this.props.buttonLabel === "Add Communication" && (
+                    {this.props.buttonLabel === "Send Mail" && (
                         <ModalBody>
-                            <FormAddComm
-                                addItemToState={this.props.addItemToState}
-                                updateState={this.props.updateState}
+                            <FormMail
                                 toggle={this.toggle}
-                                cust_id={this.props.cust_id}
+                                cust_email={this.props.cust_email}
                             />
                         </ModalBody>
                     )}
