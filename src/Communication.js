@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-// import ModalForm from "./Components/Modals/Modal";
-// import FormModal from "./Components/Modals/FormModal";
 import CommTable from "./Components/Tables/CommTable";
 import CommModal from "./Components/Modals/CommModal";
 import MailModal from "./Components/Modals/MailModal";
-/* import DataTable from "./Components/Tables/DataTable"; */
 
 const axios = require("axios");
 
@@ -18,8 +15,6 @@ class Communication extends Component {
 
     getItems() {
         const cust_id = window.location.href.split("/")[4];
-        /* console.log(cust_id);
-    let url_det = `http://127.0.0.1:5000/crud/${cust_id}`; */
         axios({
             method: "get",
             url: `http://127.0.0.1:5000/crud/${cust_id}`,
@@ -28,7 +23,6 @@ class Communication extends Component {
             },
         })
             .then(({ data }) => {
-                console.log(data);
                 const { cust_comm, cust_id, cust_email } = data;
                 this.setState({
                     cust_comm,
@@ -37,13 +31,11 @@ class Communication extends Component {
                 });
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             });
     }
 
     addItemToState = (item) => {
-        console.log(item);
         this.setState((prevState) => ({
             cust_comm: [item, ...prevState.cust_comm],
         }));

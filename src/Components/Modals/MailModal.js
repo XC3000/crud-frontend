@@ -46,7 +46,7 @@ class ModalForm extends Component {
                     onClick={this.toggle}
                     style={{ float: "left", marginRight: "10px" }}
                 >
-                    {label} {/* View Details */}
+                    {label}
                 </Button>
             );
             title = "View Communication";

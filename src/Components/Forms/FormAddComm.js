@@ -43,7 +43,7 @@ class FormAddComm extends React.Component {
                 this.props.addItemToState(commObj);
                 this.props.toggle();
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.error(err));
     };
 
     componentDidMount() {
