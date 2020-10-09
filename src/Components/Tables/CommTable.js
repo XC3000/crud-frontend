@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Table, Button } from "reactstrap";
 import ModalForm from "../Modals/Modal";
+import CommModal from "../Modals/CommModal";
 
-class DataTable extends Component {
-  deleteItem = (cust_id) => {
+class CommTable extends Component {
+  state = {};
+  /* deleteItem = (cust_id) => {
     let confirmDelete = window.confirm("Delete item forever?");
     if (confirmDelete) {
       fetch("http://127.0.0.1:5000/crud", {
@@ -22,39 +24,38 @@ class DataTable extends Component {
         })
         .catch((err) => console.log(err));
     }
-  };
+  }; */
 
   render() {
-    const items = this.props.items.map((item) => {
+    const items = this.props.comm.map((item, index) => {
       return (
-        <tr key={item.cust_id}>
-          <th scope="row">{item.cust_id}</th>
-          <td>{item.cust_name}</td>
-          <td>{item.cust_email}</td>
-          <td>{item.cust_phn}</td>
-          <td>{item.cust_address}</td>
+        <tr key={index}>
+          <th scope="row">{index}</th>
+          <td>{item.timestamp}</td>
+          <td>{item.details}</td>
+          {/* <td>{item.timestamp}</td> */}
+          {/* <td>{item.cust_phn}</td> */}
+          {/* <td>{item.cust_address}</td>
           <td>{item.cust_gst}</td>
-          <td>{item.rem_freq}</td>
+          <td>{item.rem_freq}</td> */}
           <td>
             <div style={{ width: "110px" }}>
-              <ModalForm
+              {/* <ModalForm
                 buttonLabel="Edit"
                 item={item}
                 updateState={this.props.updateState}
-              />{" "}
-              <Button
-                color="danger"
-                onClick={() => this.deleteItem(item.cust_id)}
-              >
-                Del
-              </Button>{" "}
-              <Link
+              />{" "} */}
+              <CommModal
+                buttonLabel="View Details"
+                comm={item}
+              />
+              {/* <Link
                 className="btn btn-info"
                 to={`/comm/${item.cust_id}`}
                 role="button"
               >
-                Communication
-              </Link>
+                View Details
+              </Link> */}
             </div>
           </td>
         </tr>
@@ -65,13 +66,10 @@ class DataTable extends Component {
       <Table responsive hover>
         <thead>
           <tr>
-            <th>cust_id</th>
-            <th>cust_name</th>
-            <th>cust_email</th>
-            <th>cust_phn</th>
-            <th>cust_address</th>
-            <th>cust_gst</th>
-            <th>rem_freq</th>
+            <th>S. No</th>
+            <th>Timestamp</th>
+            <th>Details</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{items}</tbody>
@@ -80,4 +78,4 @@ class DataTable extends Component {
   }
 }
 
-export default DataTable;
+export default CommTable;
