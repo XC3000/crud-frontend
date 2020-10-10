@@ -78,6 +78,7 @@ class ModalForm extends Component {
                             <FormMail
                                 toggle={this.toggle}
                                 cust_email={this.props.cust_email}
+                                cust_comm={this.props.cust_comm}
                             />
                         </ModalBody>
                     )}

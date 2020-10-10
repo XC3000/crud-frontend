@@ -82,6 +82,7 @@ class Communication extends Component {
                             buttonLabel="Send Mail"
                             addItemToState={this.addItemToState}
                             cust_email={this.state.cust_email}
+                            cust_comm={this.state.cust_comm}
                         />
                         <CommModal
                             buttonLabel="Add Communication"

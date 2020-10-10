@@ -3,10 +3,18 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class FormMail extends React.Component {
     state = {
-        subject: "",
+        subject: "Communication History",
         body: "",
         doSchedule: false,
         delay: "",
+    };
+
+    componentDidMount = () => {
+        let str = "";
+        this.props.cust_comm.forEach(({ details, timestamp }) => {
+            str = str + `Timestamp: ${timestamp}\nDetails: ${details}\n\n`;
+        });
+        this.setState({ body: str });
     };
 
     submitFormAdd = (e) => {
