@@ -91,6 +91,8 @@ class FormMail extends React.Component {
                     <Label for="Body">Email Body</Label>
                     <Input
                         type="textarea"
+                        rows="8"
+                        cols="50"
                         name="Body"
                         id="Body"
                         onChange={(e) => {

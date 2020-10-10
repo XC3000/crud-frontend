@@ -63,7 +63,7 @@ class Communication extends Component {
                 <Row>
                     <Col>
                         <h1 style={{ margin: "20px 0" }}>
-                            Communication History
+                            Communication History - {this.state.cust_email}
                         </h1>
                     </Col>
                 </Row>
